@@ -21,7 +21,7 @@ class AuthController extends Controller
                 'lastname' => 'required|string|min:3|max:100',
                 'role_id' => 'nullable|integer|exists:roles,id',
                 'rut' => 'required|string|max:255',
-                'telefono' => 'required|string|min:12|max:12', 
+                'phone' => 'required|string|min:12|max:12', 
                 'email' => 'required|string|email|unique:users',
                 'password' => 'required|string|min:6|confirmed',
             ]
@@ -43,7 +43,7 @@ class AuthController extends Controller
             'lastname' => $request->lastname,
             'role_id' => $role_id,
             'rut' => $request->rut,
-            'telefono' => $request->telefono,
+            'phone' => $request->phone,
             'email' => $request->email,
             'password' => bcrypt($request->password),
         ]);
