@@ -20,6 +20,10 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $fillable = [
         'name',
+        'lastname',
+        'role_id',
+        'rut',
+        'phone',
         'email',
         'password',
     ];
@@ -55,5 +59,11 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    // Relacion de User con Role (Un usuario tiene un rol)
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 }
